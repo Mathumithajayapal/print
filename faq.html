@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - PrintOn</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13 16H19' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M13 21H16' stroke='%23F43F5E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13 16H19' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M13 21H16' stroke='%23F43F5E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
     <script>
         tailwind.config = {
             theme: {
@@ -17,91 +18,447 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <style>
         /* === RESET & CORE === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); transition: background-color 0.3s, color 0.3s; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
 
         /* === THEME VARIABLES === */
         :root {
-            --bg-color: #FAFAFA; --bg-secondary: #F3F4F6; --bg-card: #FFFFFF;
-            --text-main: #111827; --text-muted: #6B7280;
-            --accent-color: #6366F1; --accent-dark: #4F46E5;
-            --border-color: #E5E7EB; --nav-bg: rgba(255, 255, 255, 0.85);
-            --drawer-bg: rgba(255, 255, 255, 0.98); --menu-hover-bg: #EEF2FF;
-        }
-        body.dark-mode {
-            --bg-color: #111827; --bg-secondary: #1F2937; --bg-card: #1F2937;
-            --text-main: #F9FAFB; --text-muted: #9CA3AF;
-            --accent-color: #818CF8; --accent-dark: #6366F1;
-            --border-color: #374151; --nav-bg: rgba(17, 24, 39, 0.85);
-            --drawer-bg: rgba(17, 24, 39, 0.98); --menu-hover-bg: rgba(99, 102, 241, 0.1);
+            --bg-color: #FAFAFA;
+            --bg-secondary: #F3F4F6;
+            --bg-card: #FFFFFF;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --accent-color: #6366F1;
+            --accent-dark: #4F46E5;
+            --border-color: #E5E7EB;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --drawer-bg: rgba(255, 255, 255, 0.98);
+            --menu-hover-bg: #EEF2FF;
         }
 
-        [dir="rtl"] { text-align: right; }
-        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
-        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
-        @keyframes subtleZoom { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
-        .animate-zoom { animation: subtleZoom 20s infinite alternate ease-in-out; }
+        body.dark-mode {
+            --bg-color: #111827;
+            --bg-secondary: #1F2937;
+            --bg-card: #1F2937;
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --accent-color: #818CF8;
+            --accent-dark: #6366F1;
+            --border-color: #374151;
+            --nav-bg: rgba(17, 24, 39, 0.85);
+            --drawer-bg: rgba(17, 24, 39, 0.98);
+            --menu-hover-bg: rgba(99, 102, 241, 0.1);
+        }
+
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        @keyframes subtleZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-zoom {
+            animation: subtleZoom 20s infinite alternate ease-in-out;
+        }
 
         /* === FLOATING NAVBAR DESIGN === */
-        .navbar { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1440px; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 9999px; padding: 0 32px; height: 75px; display: flex; align-items: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.1); }
-        body.dark-mode .navbar { border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5); }
-        .navbar.scrolled { top: 12px; width: 95%; border-radius: 9999px; height: 70px; border: 1px solid var(--border-color); background: var(--nav-bg); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15); }
-        body.dark-mode .navbar.scrolled { background: rgba(17, 24, 39, 0.95); border-color: rgba(255, 255, 255, 0.1); }
-        
-        .nav-link { padding: 8px 4px; margin: 0 14px; color: var(--text-main); text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--accent-color); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-link:hover, .nav-link.active { color: var(--accent-color); }
+        .navbar {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 1440px;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 9999px;
+            padding: 0 32px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.1);
+        }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
-        .dropdown-menu { position: absolute; top: 65px; left: 0; transform: translateY(15px); opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; }
-        .navbar.scrolled .dropdown-menu { top: 55px; }
-        .dropdown-inner { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; min-width: 240px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); padding: 12px; display: flex; flex-direction: column; gap: 4px; }
-        body.dark-mode .dropdown-inner { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-item { display: block; padding: 12px 16px; border-radius: 8px; color: var(--text-main); text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; text-align: left; white-space: nowrap; }
-        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); transform: translateX(4px); }
-        [dir="rtl"] .dropdown-item:hover { transform: translateX(-4px); }
+        body.dark-mode .navbar {
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar.scrolled {
+            top: 12px;
+            width: 95%;
+            border-radius: 9999px;
+            height: 70px;
+            border: 1px solid var(--border-color);
+            background: var(--nav-bg);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-mode .navbar.scrolled {
+            background: rgba(17, 24, 39, 0.95);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link {
+            padding: 8px 4px;
+            margin: 0 14px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 65px;
+            left: 0;
+            transform: translateY(15px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+
+        .navbar.scrolled .dropdown-menu {
+            top: 55px;
+        }
+
+        .dropdown-inner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            min-width: 240px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        body.dark-mode .dropdown-inner {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        [dir="rtl"] .dropdown-item:hover {
+            transform: translateX(-4px);
+        }
 
         /* === ICON BUTTONS === */
-        .icon-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--bg-secondary); color: var(--text-main); display: flex; align-items: center; justify-content: center; font-size: 13px; border: 1px solid var(--border-color); transition: all 0.3s ease; cursor: pointer; font-weight: 800; }
-        .icon-btn:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2); }
+        .icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .icon-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+        }
 
         /* === BUTTONS === */
-        .btn { padding: 12px 28px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 9999px; border: none; }
-        .btn-solid { background: linear-gradient(135deg, var(--accent-color), var(--accent-dark)); color: #FFFFFF !important; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
-        .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4); }
-        .btn-outline { background: var(--bg-secondary); color: var(--accent-color) !important; border: 1px solid var(--border-color); }
-        .btn-outline:hover { background: var(--accent-color); color: #FFFFFF !important; transform: translateY(-2px); border-color: var(--accent-color); }
+        .btn {
+            padding: 12px 28px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 9999px;
+            border: none;
+        }
+
+        .btn-solid {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-outline {
+            background: var(--bg-secondary);
+            color: var(--accent-color) !important;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
 
         /* DRAWER OVERLAY */
-        .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px); }
-        .drawer-overlay.active { opacity: 1; visibility: visible; }
-        .fullscreen-menu { position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100dvh; background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateX(100%); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color); }
-        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
-        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
-        .mobile-link { display: block; width: 100%; padding: 16px 32px; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color); }
-        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); }
-        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; }
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100dvh;
+            background: var(--drawer-bg);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid var(--border-color);
+        }
+
+        [dir="rtl"] .fullscreen-menu {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+            border-left: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .fullscreen-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .mobile-link {
+            display: block;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-link:hover {
+            color: var(--accent-color);
+            padding-left: 40px;
+            background: var(--menu-hover-bg);
+        }
+
+        [dir="rtl"] .mobile-link:hover {
+            padding-left: 32px;
+            padding-right: 40px;
+        }
 
         /* FOOTER */
-        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
-        body.dark-mode footer { border-color: var(--border-color); }
-        footer h4 { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 400; }
-        footer a:hover { color: var(--accent-color); }
-        .social-link-circle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: transparent; }
-        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-3px); }
-        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+        }
+
+        body.dark-mode footer {
+            border-color: var(--border-color);
+        }
+
+        footer h4 {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a,
+        footer li,
+        footer span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            margin-top: 60px;
+        }
 
         /* FAQ ACCORDION STYLES */
-        .faq-item.active .faq-answer { display: block; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--accent-color); }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--accent-color);
+        }
     </style>
 </head>
 
@@ -113,11 +470,14 @@
             <div class="flex items-center flex-shrink-0">
                 <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-bold tracking-widest uppercase"
                     style="color: var(--text-main) !important; text-decoration: none;">
-                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
-    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
-</svg>
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+                        <path
+                            d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                        <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
                     PrintOn
                 </a>
             </div>
@@ -134,7 +494,7 @@
                 </div>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="Pricing.html" class="nav-link">Pricing</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="faq.html" class="nav-link active">FAQ</a>
                 <a href="contact.html" class="nav-link">Contact</a>
@@ -162,7 +522,8 @@
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
-                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                <button id="mobile-btn"
+                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -175,13 +536,17 @@
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
             <a href="index.html" class="text-xl font-bold tracking-widest uppercase block flex items-center gap-2"
                 style="color: var(--text-main) !important; text-decoration: none;">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
-    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
-</svg> PrintOn
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+                    <path
+                        d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round" />
+                </svg> PrintOn
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
+            <button id="close-menu"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -190,20 +555,23 @@
             <a href="home-2.html" class="mobile-link">Home Page 2</a>
             <a href="about.html" class="mobile-link">About</a>
             <a href="services.html" class="mobile-link">Services</a>
-            <a href="pricing.html" class="mobile-link">Pricing</a>
+            <a href="Pricing.html" class="mobile-link">Pricing</a>
             <a href="blog.html" class="mobile-link">Blog</a>
             <a href="faq.html" class="mobile-link" style="color: var(--accent-color);">FAQ</a>
             <a href="contact.html" class="mobile-link">Contact</a>
             <div class="px-8 mt-6 mb-2">
-                <span class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
+                <span
+                    class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
             </div>
             <a href="user.html" class="mobile-link !text-sm text-[var(--text-muted)]">User Dashboard</a>
             <a href="admin.html" class="mobile-link !text-sm text-[var(--text-muted)]">Admin Dashboard</a>
         </div>
-        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+        <div
+            class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
             <div class="flex justify-between items-center w-full">
                 <div class="flex items-center gap-3">
-                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
+                    <span
+                        class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
                     <button id="theme-toggle-mobile" class="icon-btn">
                         <i class="fas fa-moon" id="theme-icon-mobile"></i>
                     </button>
@@ -221,30 +589,39 @@
     </div>
 
     <!-- ================= HERO BANNER ================= -->
-    <section class="relative w-full min-h-[100dvh] pt-24 md:pt-32 pb-12 md:pb-16 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-color)]">
-        
+    <section
+        class="relative w-full min-h-[100dvh] pt-24 md:pt-32 pb-12 md:pb-16 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-color)]">
+
         <div class="absolute inset-0 z-0">
-            <img src="images/print (6).jpg" alt="In-Store & Online Support" class="w-full h-full object-cover animate-zoom" />
+            <img src="images/print (6).jpg" alt="In-Store & Online Support"
+                class="w-full h-full object-cover animate-zoom" />
             <div class="absolute inset-0 bg-white/75 dark:bg-gray-900/85 backdrop-blur-[2px]"></div>
         </div>
 
-        <div class="max-w-[1100px] w-11/12 mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center relative z-10 backdrop-blur-xl bg-white/50 dark:bg-gray-800/60 border border-white/60 dark:border-gray-600/50 rounded-[32px] md:rounded-[40px] shadow-2xl my-8 md:my-12 py-10 md:py-16">
-            
-            <span class="bg-white text-[var(--accent-color)] text-sm font-bold uppercase tracking-[0.2em] mb-6 px-6 py-3 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-2">
+        <div
+            class="max-w-[1100px] w-11/12 mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center relative z-10 backdrop-blur-xl bg-white/50 dark:bg-gray-800/60 border border-white/60 dark:border-gray-600/50 rounded-[32px] md:rounded-[40px] shadow-2xl my-8 md:my-12 py-10 md:py-16">
+
+            <span
+                class="bg-white text-[var(--accent-color)] text-sm font-bold uppercase tracking-[0.2em] mb-6 px-6 py-3 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-2">
                 <i class="fas fa-headset text-lg"></i> Retail & Customer Support
             </span>
 
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 text-gray-900 dark:text-white tracking-tight uppercase drop-shadow-sm">
+            <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 text-gray-900 dark:text-white tracking-tight uppercase drop-shadow-sm">
                 In-Store & Online<br class="hidden sm:block">
                 <span class="italic font-light text-[var(--accent-color)]">Support.</span>
             </h1>
 
-            <p class="text-gray-700 dark:text-gray-200 text-base md:text-lg leading-relaxed max-w-2xl font-medium mb-10 drop-shadow-sm">
-                Find quick answers to common questions about our physical retail services, point-of-sale integrations, and boutique customer support.
+            <p
+                class="text-gray-700 dark:text-gray-200 text-base md:text-lg leading-relaxed max-w-2xl font-medium mb-10 drop-shadow-sm">
+                Find quick answers to common questions about our physical retail services, point-of-sale integrations,
+                and boutique customer support.
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
-                <a href="#faq-section" class="btn btn-outline !bg-white !text-gray-900 hover:!bg-[var(--accent-color)] hover:!text-white !py-4 !px-10 text-sm shadow-md !border-none">Browse Topics</a>
+                <a href="#faq-section"
+                    class="btn btn-outline !bg-white !text-gray-900 hover:!bg-[var(--accent-color)] hover:!text-white !py-4 !px-10 text-sm shadow-md !border-none">Browse
+                    Topics</a>
                 <a href="contact.html" class="btn btn-solid !py-4 !px-10 text-sm">Contact Support</a>
             </div>
         </div>
@@ -259,155 +636,245 @@
             </div>
 
             <!-- SECTION 1: Design & Quality Guidelines -->
-            <h3 class="text-2xl font-bold text-[var(--text-main)] mb-6 mt-12 border-b border-[var(--border-color)] pb-3">Design & Quality Guidelines</h3>
+            <h3
+                class="text-2xl font-bold text-[var(--text-main)] mb-6 mt-12 border-b border-[var(--border-color)] pb-3">
+                Design & Quality Guidelines</h3>
             <div class="space-y-4">
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">What file formats do you accept for custom designs?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">What file formats do you accept for custom
+                            designs?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>We accept high-resolution PNG and JPEG files. For apparel, we highly recommend transparent PNG files to ensure there are no unwanted white background borders around your design.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">What is the recommended DPI for print files?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>For the best print quality, we require your design files to be at least 300 DPI (dots per inch) created at the actual physical print size.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>We accept high-resolution PNG and JPEG files. For apparel, we highly recommend transparent
+                            PNG files to ensure there are no unwanted white background borders around your design.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">Do you print using CMYK or RGB color profiles?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">What is the recommended DPI for print
+                            files?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Our printers utilize the CMYK color space. While you can upload RGB files, they will be automatically converted to CMYK before printing, which may cause slight color shifts. We recommend converting files to CMYK before uploading.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">Can I print on the sleeves of the t-shirts?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Yes, sleeve printing is available on select premium garments, including heavy hoodies and our signature long-sleeve tees. Additional print location fees apply.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>For the best print quality, we require your design files to be at least 300 DPI (dots per
+                            inch) created at the actual physical print size.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I avoid white backgrounds around my PNG designs?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">Do you print using CMYK or RGB color
+                            profiles?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Ensure that you export your PNG with transparency enabled from your design software (like Photoshop, Illustrator, or Canva). If there is a solid white background in your file, the printer will print a white box on the garment.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Our printers utilize the CMYK color space. While you can upload RGB files, they will be
+                            automatically converted to CMYK before printing, which may cause slight color shifts. We
+                            recommend converting files to CMYK before uploading.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">Do you offer embroidery in addition to DTG printing?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">Can I print on the sleeves of the
+                            t-shirts?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Yes, we offer premium embroidery services for hats, beanies, polo shirts, and select outerwear. All embroidery files undergo a one-time digitization process before production.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Yes, sleeve printing is available on select premium garments, including heavy hoodies and our
+                            signature long-sleeve tees. Additional print location fees apply.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I avoid white backgrounds around my
+                            PNG designs?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                    </div>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Ensure that you export your PNG with transparency enabled from your design software (like
+                            Photoshop, Illustrator, or Canva). If there is a solid white background in your file, the
+                            printer will print a white box on the garment.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">Do you offer embroidery in addition to DTG
+                            printing?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                    </div>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Yes, we offer premium embroidery services for hats, beanies, polo shirts, and select
+                            outerwear. All embroidery files undergo a one-time digitization process before production.
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- SECTION 2: Billing & Account Management -->
-            <h3 class="text-2xl font-bold text-[var(--text-main)] mb-6 mt-16 border-b border-[var(--border-color)] pb-3">Billing & Account Management</h3>
+            <h3
+                class="text-2xl font-bold text-[var(--text-main)] mb-6 mt-16 border-b border-[var(--border-color)] pb-3">
+                Billing & Account Management</h3>
             <div class="space-y-4">
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
                         <h3 class="font-bold text-lg text-[var(--text-main)]">When am I charged for an order?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>You are only charged for the product and shipping costs when the order is successfully imported from your store and enters the production queue. The customer pays you first, and then we bill your payment method on file.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>You are only charged for the product and shipping costs when the order is successfully
+                            imported from your store and enters the production queue. The customer pays you first, and
+                            then we bill your payment method on file.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
                         <h3 class="font-bold text-lg text-[var(--text-main)]">What payment methods do you accept?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>We accept all major credit and debit cards (Visa, Mastercard, American Express, Discover), as well as PayPal. You can also top up your PrintOn Wallet for faster checkout.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I change my default billing currency?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>You can change your default billing and display currency at any time by navigating to Account Settings > Billing > Currency Preferences.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>We accept all major credit and debit cards (Visa, Mastercard, American Express, Discover), as
+                            well as PayPal. You can also top up your PrintOn Wallet for faster checkout.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">Can I set up multiple stores under one account?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I change my default billing
+                            currency?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Yes! Even on our standard free tier, you can link up to 5 different e-commerce storefronts under a single PrintOn account for streamlined management.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">Are there volume discounts for large orders?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>Yes. If you are placing a manual bulk order (25+ items), tiered discounts will automatically apply at checkout. For consistent high-volume monthly sales, consider upgrading to PrintOn Premium for blanket discounts.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>You can change your default billing and display currency at any time by navigating to Account
+                            Settings > Billing > Currency Preferences.</p>
                     </div>
                 </div>
 
-                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
-                    <div class="faq-header flex justify-between items-center p-6" onclick="this.parentElement.classList.toggle('active')">
-                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I delete or pause my PrintOn account?</h3>
-                        <i class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">Can I set up multiple stores under one
+                            account?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
                     </div>
-                    <div class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
-                        <p>To permanently delete your account and all associated data, visit Account Settings > Privacy > Delete Account. To temporarily pause integration, you can disable the API link directly in your store dashboard.</p>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Yes! Even on our standard free tier, you can link up to 5 different e-commerce storefronts
+                            under a single PrintOn account for streamlined management.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">Are there volume discounts for large
+                            orders?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                    </div>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>Yes. If you are placing a manual bulk order (25+ items), tiered discounts will automatically
+                            apply at checkout. For consistent high-volume monthly sales, consider upgrading to PrintOn
+                            Premium for blanket discounts.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] overflow-hidden cursor-pointer transition-all hover:border-[var(--accent-color)] hover:shadow-md">
+                    <div class="faq-header flex justify-between items-center p-6"
+                        onclick="this.parentElement.classList.toggle('active')">
+                        <h3 class="font-bold text-lg text-[var(--text-main)]">How do I delete or pause my PrintOn
+                            account?</h3>
+                        <i
+                            class="fas fa-chevron-down text-[var(--text-muted)] transition-transform duration-300 faq-icon text-xl"></i>
+                    </div>
+                    <div
+                        class="faq-answer px-6 pb-6 text-[var(--text-muted)] hidden leading-relaxed border-t border-[var(--border-color)] pt-4 mt-2 mx-6">
+                        <p>To permanently delete your account and all associated data, visit Account Settings > Privacy
+                            > Delete Account. To temporarily pause integration, you can disable the API link directly in
+                            your store dashboard.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[24px] p-8 text-center shadow-sm">
+            <div
+                class="mt-16 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[24px] p-8 text-center shadow-sm">
                 <i class="fas fa-headset text-4xl text-[var(--accent-color)] mb-4"></i>
                 <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Still have questions?</h3>
-                <p class="text-[var(--text-muted)] mb-6">Our dedicated support team is available 24/7 to help you out.</p>
+                <p class="text-[var(--text-muted)] mb-6">Our dedicated support team is available 24/7 to help you out.
+                </p>
                 <a href="contact.html" class="btn btn-solid !py-3 !px-8">Contact Support</a>
             </div>
         </div>
     </section>
 
     <!-- ================= CTA ================= -->
-    <section class="relative w-full py-24 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)]">
+    <section
+        class="relative w-full py-24 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)]">
         <div class="absolute inset-0 z-0">
             <img src="images/print (5).jpg" alt="Retail Store" class="w-full h-full object-cover fixed-attachment">
             <div class="absolute inset-0 bg-[#0F172A]/90 backdrop-blur-sm"></div>
         </div>
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full relative z-10 flex flex-col items-center text-center">
             <div class="max-w-3xl mx-auto">
-                <span class="text-[var(--accent-color)] font-extrabold tracking-[0.2em] uppercase text-sm mb-6 block">Zero Risk. High Reward.</span>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Ready to launch your Merch Empire?</h2>
+                <span
+                    class="text-[var(--accent-color)] font-extrabold tracking-[0.2em] uppercase text-sm mb-6 block">Zero
+                    Risk. High Reward.</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Ready to launch your Merch
+                    Empire?</h2>
                 <div class="flex flex-col sm:flex-row justify-center gap-6 w-full">
-                    <a href="register.html" class="btn btn-solid !py-4 !px-10 text-sm shadow-xl border border-transparent">Create Free Account</a>
-                    <a href="services.html" class="btn btn-outline !bg-transparent !text-white !border-white hover:!bg-white hover:!text-gray-900 !py-4 !px-10 text-sm shadow-xl">Browse Catalog</a>
+                    <a href="register.html"
+                        class="btn btn-solid !py-4 !px-10 text-sm shadow-xl border border-transparent">Create Free
+                        Account</a>
+                    <a href="services.html"
+                        class="btn btn-outline !bg-transparent !text-white !border-white hover:!bg-white hover:!text-gray-900 !py-4 !px-10 text-sm shadow-xl">Browse
+                        Catalog</a>
                 </div>
             </div>
         </div>
@@ -419,17 +886,26 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
                     <div class="mb-6">
-                        <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-bold tracking-widest uppercase" style="color: var(--text-main) !important; text-decoration: none;">
-                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
-    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
-</svg>
+                        <a href="index.html"
+                            class="inline-flex items-center gap-3 text-2xl font-bold tracking-widest uppercase"
+                            style="color: var(--text-main) !important; text-decoration: none;">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="text-indigo-500"
+                                style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+                                <path
+                                    d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round" />
+                            </svg>
                             PrintOn
                         </a>
                     </div>
-                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
-                        Empowering creators and brands with top-tier print-on-demand services. We turn your digital designs into premium physical products with zero upfront inventory costs.
+                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm"
+                        style="color: var(--text-muted);">
+                        Empowering creators and brands with top-tier print-on-demand services. We turn your digital
+                        designs into premium physical products with zero upfront inventory costs.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="social-link-circle"><i class="fab fa-instagram"></i></a>
@@ -446,7 +922,7 @@
                                 <li><a href="login.html">Seller Login</a></li>
                                 <li><a href="user.html">My Dashboard</a></li>
                                 <li><a href="#">Order Tracking</a></li>
-                                <li><a href="pricing.html">Pricing Plans</a></li>
+                                <li><a href="Pricing.html">Pricing Plans</a></li>
                                 <li><a href="faq.html">Help Center</a></li>
                             </ul>
                         </div>
@@ -463,15 +939,22 @@
                         <div class="sm:col-span-2 md:col-span-1">
                             <h4>Headquarters</h4>
                             <ul class="space-y-4 text-[var(--text-muted)] text-sm font-medium">
-                                <li class="flex items-start gap-4"><i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i><span>450 Print Avenue<br>Creative District, CA 90210</span></li>
-                                <li class="flex items-center gap-4"><i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i><a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-MERCH</a></li>
-                                <li class="flex items-center gap-4"><i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i><a href="contact.html" class="break-all hover:text-[var(--accent-color)]">support@printon.com</a></li>
+                                <li class="flex items-start gap-4"><i class="fas fa-map-marker-alt mt-1 shrink-0"
+                                        style="color: var(--accent-color);"></i><span>450 Print Avenue<br>Creative
+                                        District, CA 90210</span></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-phone shrink-0"
+                                        style="color: var(--accent-color);"></i><a href="tel:+15550198"
+                                        class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-MERCH</a></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-envelope shrink-0"
+                                        style="color: var(--accent-color);"></i><a href="contact.html"
+                                        class="break-all hover:text-[var(--accent-color)]">support@printon.com</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
+            <div
+                class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
                 <p style="color: var(--text-muted);">&copy; 2026 PrintOn Custom Merchandise. All rights reserved.</p>
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <a href="#">Terms of Service</a>
@@ -520,12 +1003,12 @@
         function updateThemeUI(isDark) {
             if (isDark) {
                 document.body.classList.add('dark-mode');
-                if(iconDesktop) iconDesktop.className = 'fas fa-sun';
-                if(iconMobile) iconMobile.className = 'fas fa-sun';
+                if (iconDesktop) iconDesktop.className = 'fas fa-sun';
+                if (iconMobile) iconMobile.className = 'fas fa-sun';
             } else {
                 document.body.classList.remove('dark-mode');
-                if(iconDesktop) iconDesktop.className = 'fas fa-moon';
-                if(iconMobile) iconMobile.className = 'fas fa-moon';
+                if (iconDesktop) iconDesktop.className = 'fas fa-moon';
+                if (iconMobile) iconMobile.className = 'fas fa-moon';
             }
         }
 
@@ -566,4 +1049,5 @@
         if (rtlMobile) rtlMobile.onclick = toggleRTL;
     </script>
 </body>
+
 </html>
