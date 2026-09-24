@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrintOn - Custom Merchandise & POD Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👕</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13 16H19' stroke='%236366F1' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M13 21H16' stroke='%23F43F5E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
     <script>
         tailwind.config = {
             theme: {
@@ -84,6 +84,23 @@
             100% { transform: scale(1.05); }
         }
         .animate-zoom { animation: subtleZoom 20s infinite alternate ease-in-out; }
+
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
 
         /* === FLOATING NAVBAR DESIGN === */
         .navbar {
@@ -351,7 +368,11 @@
             <div class="flex items-center flex-shrink-0">
                 <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-bold tracking-widest uppercase"
                     style="color: var(--text-main) !important; text-decoration: none;">
-                    <i class="fas fa-print" style="color: var(--accent-color); font-size: 1.4rem;"></i>
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
                     PrintOn
                 </a>
             </div>
@@ -409,7 +430,11 @@
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
             <a href="index.html" class="text-xl font-bold tracking-widest uppercase block flex items-center gap-2"
                 style="color: var(--text-main) !important; text-decoration: none;">
-                <i class="fas fa-print" style="color: var(--accent-color);"></i> PrintOn
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
+</svg> PrintOn
             </a>
             <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
                 <i class="fas fa-times"></i>
@@ -450,32 +475,77 @@
         </div>
     </div>
 
-    <!-- ================= HERO BANNER ================= -->
-    <section class="relative w-full min-h-[100dvh] pt-24 md:pt-32 pb-12 md:pb-16 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-color)]">
+        <!-- ================= HERO BANNER ================= -->
+    <section class="relative w-full min-h-[100dvh] pt-24 md:pt-32 pb-12 md:pb-16 flex items-center overflow-hidden bg-[var(--bg-color)] border-b border-[var(--border-color)]">
         
-        <div class="absolute inset-0 z-0">
-            <img src="images/print (5).jpg" alt="Premium Retail Apparel" class="w-full h-full object-cover animate-zoom" />
-            <div class="absolute inset-0 bg-white/75 dark:bg-gray-900/85 backdrop-blur-[2px]"></div>
-        </div>
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-indigo-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-64 h-64 bg-purple-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-40 w-64 h-64 bg-pink-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
 
-        <div class="max-w-[1100px] w-11/12 mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center relative z-10 backdrop-blur-xl bg-white/50 dark:bg-gray-800/60 border border-white/60 dark:border-gray-600/50 rounded-[32px] md:rounded-[40px] shadow-2xl my-8 md:my-12 py-10 md:py-16">
-            
-            <span class="bg-white text-[var(--accent-color)] text-sm font-bold uppercase tracking-[0.2em] mb-6 px-6 py-3 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-2">
-                <i class="fas fa-store text-lg"></i> Retail Apparel Sourcing
-            </span>
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Text Content -->
+                <div class="flex flex-col items-start text-left max-w-2xl">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-xs font-bold uppercase tracking-widest mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                        </span>
+                        Premium Print-on-Demand
+                    </span>
 
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 text-gray-900 dark:text-white tracking-tight uppercase drop-shadow-sm">
-                Stock. Sell.<br class="hidden sm:block">
-                <span class="italic font-light text-[var(--accent-color)]">Scale.</span>
-            </h1>
+                    <h1 class="text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.1] mb-6 text-[var(--text-main)] tracking-tight">
+                        Create & Sell <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-purple-600">Custom Merch</span>
+                    </h1>
 
-            <p class="text-gray-700 dark:text-gray-200 text-base md:text-lg leading-relaxed max-w-2xl font-medium mb-10 drop-shadow-sm">
-                Source high-quality custom apparel for your boutique or retail store. Let us handle the printing, inventory, and global fulfillment.
-            </p>
+                    <p class="text-[var(--text-muted)] text-lg md:text-xl leading-relaxed font-medium mb-8 max-w-lg">
+                        Turn your ideas into premium products. Zero upfront costs, no inventory, and automated global fulfillment. You design it, we print and ship it.
+                    </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
-                <a href="services.html" class="btn btn-outline !bg-white !text-gray-900 hover:!bg-[var(--accent-color)] hover:!text-white !py-4 !px-10 text-sm shadow-md !border-none">Explore Products</a>
-                <a href="register.html" class="btn btn-solid !py-4 !px-10 text-sm">Start Designing</a>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10">
+                        <a href="register.html" class="btn btn-solid !py-4 !px-8 text-sm flex items-center justify-center gap-2 group">
+                            Start Customizing <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="services.html" class="btn btn-outline !bg-[var(--bg-card)] !text-[var(--text-main)] hover:!border-[var(--accent-color)] hover:!text-[var(--accent-color)] !py-4 !px-8 text-sm flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fas fa-tshirt"></i> Shop Custom Merch
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center gap-6 text-sm text-[var(--text-muted)] font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i> No minimums
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i> Fast shipping
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i> 24/7 Support
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsive Image Composition (Stacks on Mobile, Floating on Desktop) -->
+                <div class="relative w-full h-auto lg:h-[650px] flex flex-col lg:flex-row lg:items-center lg:justify-center mt-10 lg:mt-0 gap-6 lg:gap-0">
+                    <!-- Main Image -->
+                    <div class="relative lg:absolute w-full lg:w-[75%] h-[300px] sm:h-[400px] lg:h-[80%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[var(--bg-card)] z-20 transform lg:hover:-translate-y-2 transition-transform duration-500">
+                        <img src="images/print (10).jpg" alt="Custom T-Shirt Print" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Floating Image 1 (Top Right) -->
+                    <div class="relative lg:absolute lg:top-0 lg:right-0 w-full lg:w-[45%] h-[250px] sm:h-[300px] lg:h-[45%] rounded-[30px] overflow-hidden shadow-xl border-4 border-[var(--bg-card)] z-30 transform lg:hover:-translate-y-2 transition-transform duration-500 lg:animate-float">
+                        <img src="images/print (8).jpg" alt="Blank Apparel" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Floating Image 2 (Bottom Left) -->
+                    <div class="relative lg:absolute lg:bottom-4 lg:left-0 w-full lg:w-[40%] h-[250px] sm:h-[300px] lg:h-[40%] rounded-[30px] overflow-hidden shadow-xl border-4 border-[var(--bg-card)] z-30 transform lg:hover:-translate-y-2 transition-transform duration-500 lg:animate-float animation-delay-2000">
+                        <img src="images/print (13).jpg" alt="Design Pattern" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -497,35 +567,35 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="bg-[var(--bg-card)] rounded-[32px] overflow-hidden shadow-lg border border-[var(--border-color)] hover:-translate-y-2 transition-transform duration-300">
                     <div class="h-48 w-full overflow-hidden">
-                        <img src="images/print (8).jpg" alt="Premium Blanks" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        <img src="images/custom_merch_1.jpg" alt="Premium Blanks" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl flex items-center justify-center mb-6 text-[var(--accent-color)]"><i class="fas fa-tshirt text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">Premium Blanks</h3>
                         <p class="text-[var(--text-muted)] mb-6 leading-relaxed">High-quality, ethically sourced blank apparel ready for your brand's unique designs.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">View Catalog <i class="fas fa-arrow-right"></i></a>
+                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">Shop All Products <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="bg-[var(--bg-card)] rounded-[32px] overflow-hidden shadow-lg border border-[var(--border-color)] hover:-translate-y-2 transition-transform duration-300">
                     <div class="h-48 w-full overflow-hidden">
-                        <img src="images/print (13).jpg" alt="Custom Patterns" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        <img src="images/custom_merch_2.jpg" alt="Custom Patterns" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl flex items-center justify-center mb-6 text-[var(--accent-color)]"><i class="fas fa-layer-group text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">Custom Patterns</h3>
                         <p class="text-[var(--text-muted)] mb-6 leading-relaxed">All-over prints and custom patterned apparel manufactured to retail-ready standards.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">View Catalog <i class="fas fa-arrow-right"></i></a>
+                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">Shop All Products <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="bg-[var(--bg-card)] rounded-[32px] overflow-hidden shadow-lg border border-[var(--border-color)] hover:-translate-y-2 transition-transform duration-300">
                     <div class="h-48 w-full overflow-hidden">
-                        <img src="images/print (11).jpg" alt="Brand Partnerships" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        <img src="images/custom_merch_3.jpg" alt="Brand Partnerships" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl flex items-center justify-center mb-6 text-[var(--accent-color)]"><i class="fas fa-handshake text-xl"></i></div>
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">Brand Partnerships</h3>
                         <p class="text-[var(--text-muted)] mb-6 leading-relaxed">Official merchandising and premium partnerships with top brands like Levi's.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">View Catalog <i class="fas fa-arrow-right"></i></a>
+                        <a href="services.html" class="text-[var(--accent-color)] font-bold uppercase tracking-wide text-xs flex items-center gap-2 hover:gap-3 transition-all">Shop All Products <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -576,8 +646,7 @@
                     </ul>
                     <div>
                         <a href="about.html" class="btn btn-solid !py-4 !px-10 text-sm shadow-xl inline-flex">
-                            Learn About Our Process
-                        </a>
+Start Shopping                        </a>
                     </div>
                 </div>
             </div>
@@ -599,40 +668,35 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-                <div class="flex flex-col items-center text-center relative z-10 group">
+                <div class="flex flex-col items-center text-center relative z-10 group h-full">
                     <div class="w-full aspect-square rounded-[40px] overflow-hidden border border-[var(--border-color)] shadow-xl mb-6 relative">
                         <img src="images/print (3).jpg" alt="Craft Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
                         <div class="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">1. Craft & Design</h3>
-                    <p class="text-[var(--text-muted)] leading-relaxed">Create unique designs inspired by traditional techniques and modern trends.</p>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">Create unique designs inspired by traditional techniques and modern trends.</p>
+                    <a href="services.html" class="btn btn-solid mt-auto !py-3 !px-8 text-xs">Order Now</a>
                 </div>
-                <div class="flex flex-col items-center text-center relative z-10 group">
+                <div class="flex flex-col items-center text-center relative z-10 group h-full">
                     <div class="w-full aspect-square rounded-[40px] overflow-hidden border border-[var(--border-color)] shadow-xl mb-6 relative">
                         <img src="images/print (12).jpg" alt="Inventory" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
                         <div class="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">2. Inventory Management</h3>
-                    <p class="text-[var(--text-muted)] leading-relaxed">We organize and stock your custom apparel in our advanced fulfillment centers.</p>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">We organize and stock your custom apparel in our advanced fulfillment centers.</p>
+                    <a href="services.html" class="btn btn-solid mt-auto !py-3 !px-8 text-xs">Order Now</a>
                 </div>
-                <div class="flex flex-col items-center text-center relative z-10 group">
+                <div class="flex flex-col items-center text-center relative z-10 group h-full">
                     <div class="w-full aspect-square rounded-[40px] overflow-hidden border border-[var(--border-color)] shadow-xl mb-6 relative">
                         <img src="images/print (7).jpg" alt="Retail Sales" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
                         <div class="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">3. Retail POS Integration</h3>
-                    <p class="text-[var(--text-muted)] leading-relaxed">Sync your in-store sales directly with our fulfillment network for seamless retail.</p>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">Sync your in-store sales directly with our fulfillment network for seamless retail.</p>
+                    <a href="services.html" class="btn btn-solid mt-auto !py-3 !px-8 text-xs">Order Now</a>
                 </div>
             </div>
-            <div class="mt-16 text-center flex flex-col items-center">
-                <a href="faq.html" class="btn btn-outline !py-4 !px-10 text-sm mb-4">
-                    Read Our FAQ
-                </a>
-                <span class="text-sm font-semibold text-[var(--text-muted)]">
-                    <i class="fas fa-link text-[var(--accent-color)] mr-1"></i>
-                    Integrates with Shopify, Etsy, WooCommerce
-                </span>
-            </div>
+          
         </div>
     </section>
 
@@ -707,10 +771,9 @@
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-6 w-full mb-16">
                     <a href="register.html" class="btn btn-solid !py-5 !px-12 text-sm shadow-xl border border-transparent">
-                        Create Free Account
-                    </a>
+Shop Now                    </a>
                     <a href="services.html" class="btn btn-outline !bg-transparent !text-white !border-white hover:!bg-white hover:!text-gray-900 !py-5 !px-12 text-sm shadow-xl">
-                        Browse Catalog
+                       See What We Offer
                     </a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-slate-700">
@@ -744,7 +807,11 @@
                 <div class="lg:col-span-4">
                     <div class="mb-6">
                         <a href="index.html" class="inline-flex items-center gap-3 text-2xl font-bold tracking-widest uppercase" style="color: var(--text-main) !important; text-decoration: none;">
-                            <i class="fas fa-print" style="color: var(--accent-color); font-size: 1.4rem;"></i>
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500" style="color: var(--accent-color, #6366F1); flex-shrink: 0;">
+    <path d="M22 6L28 10V15L24 13V26C24 27.1 23.1 28 22 28H10C8.9 28 8 27.1 8 26V13L4 15V10L10 6C10 6 12 9 16 9C20 9 22 6 22 6Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 16H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M13 21H16" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
                             PrintOn
                         </a>
                     </div>
